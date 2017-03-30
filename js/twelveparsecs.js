@@ -3,6 +3,11 @@
 $(document).ready(function() {
 
 
+function showDetail(name) {
+    $detailDiv = $('<div>')
+    
+}
+
 //click button to search
 $('#getInfo').click(function(event) {
     event.preventDefault();
@@ -17,7 +22,7 @@ $('#getInfo').click(function(event) {
         url: 'https://swapi.co/api/' + $choice,
         // data: '{ results : name }',
         success: function(result) {
-            let $result = result;
+            let $result = result
             let $bigbox =$('<div>');
 
             for(var i = 0; i < $result.results.length; i++) {
@@ -29,18 +34,11 @@ $('#getInfo').click(function(event) {
                 } else {
                     console.log($result.results[i].name);
                     $cat.append($result.results[i].name);
+                    $cat.on('click', showDetail);
                     $bigbox.append($cat);
                 }
             }
             $('#display').empty();
             $('#display').append($bigbox);
-
-
-        }
-
-
-    })
-    console.log("hey");
-});
-
+            }
 });
