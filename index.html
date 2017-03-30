@@ -6,9 +6,24 @@
         <link rel=stylesheet  href="css/nevertellmetheodds.css">
     </head>
     <body>
+        <div class="container">
         <h3 id="title">I made the Kessel Run in 12 parsecs.</h3>
-        <div id="display"></div>
-
+        <div id="display">
+            <form>
+            I want to know about
+            <input list="cats" name="cats">
+            <datalist id="cats">
+                <option id="people" value="people"></option>
+                <option id="planets" value="planets"></option>
+                <option id="films" value="films"></option>
+                <option id="species" value="species"></option>
+                <option id="vehicles" value="species"></option>
+                <option id="starships" value="starships"></option>
+            </datalist>
+           <input type="submit">
+          </form>
+        </div>
+        </div>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/twelveparsecs.js"></script>
     </body>
