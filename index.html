@@ -8,8 +8,7 @@
     <body>
         <div class="container">
         <h3 id="title">I made the Kessel Run in 12 parsecs.</h3>
-        <div id="display">
-            <form>
+            <form id ="searchParams" method="POST">
             I want to know about
             <input list="cats" name="cats">
             <datalist id="cats">
@@ -20,9 +19,9 @@
                 <option id="vehicles" value="species"></option>
                 <option id="starships" value="starships"></option>
             </datalist>
-           <input type="submit">
+           <input id="getInfo" type="submit">
           </form>
-        </div>
+          <div id="display"></div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/twelveparsecs.js"></script>
