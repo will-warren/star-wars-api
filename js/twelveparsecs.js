@@ -6,11 +6,11 @@ $(document).ready(function() {
 $('.display').click(function(event) {
     event.preventDefault();
     //get category from h4's parent div
-    $parent = $('h4').parent();
-    var $cat = $parent.attr('class');
+    let $parent = $('h4').parent();
+    let $cat = $parent.attr('class');
     let cat = String($cat);
     //get id to search for...currently only returning id_1, not unique id
-    var $id = $("h4").attr('id');
+    let $id = $('h4').get();  //need correct method here
     console.log($id);
     //slice off num to use in ajax url req
     if($id.length == 4) {
@@ -29,7 +29,6 @@ $('.display').click(function(event) {
             console.log(result);
         }
     })
-    $id.empty();
 
 });
 
