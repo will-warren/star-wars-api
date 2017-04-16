@@ -10,6 +10,23 @@
 
 }
 
-.display: ul {
+ul {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
     list-style: none;
+}
+
+.active {
+    line-height: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: stretch;
 }

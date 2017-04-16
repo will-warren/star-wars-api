@@ -9,8 +9,8 @@ $('.display').click(function(event) {
     let $parent = $('li').parent();
     let $cat = $parent.attr('class');
     let cat = String($cat);
-    //get id to search for
-    var $id = $('li.active').attr('id');
+    //get id to search for..right now id doesn't change if user clicks more than once.
+    let $id = $('li.active').attr('id');
     //slice off num to use in ajax url req
     if($id.length == 4) {
         id_num = $id.slice(-1) + '/';
@@ -33,6 +33,7 @@ $('.display').click(function(event) {
                 $info.append($("<br>"))
             }
             console.log($info);
+
             $('li.active').append($info);
         }
     })
@@ -64,7 +65,7 @@ $('#getInfo').click(function(event) {
                 if($choice === "films/") {
                     $cat.append("Episode " + $result.results[i].episode_id + ':\t' + $result.results[i].title);
                     $cat.attr("id", "id_" + (i+1));
-                    $($cat).on('click',function() {
+                    $($cat).on('click', function() {
                       $($cat).removeClass('active');
                       $(this).addClass('active');
                     });
