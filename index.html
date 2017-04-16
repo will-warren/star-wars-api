@@ -3,10 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Star Wars API</title>
+        <link rel=stylesheet href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css'>
         <link rel=stylesheet  href="css/nevertellmetheodds.css">
     </head>
     <body>
         <div class="container">
+        <div class="row">
         <h3 id="title">I made the Kessel Run in 12 parsecs.</h3>
             <form id ="searchParams" method="POST">
             Now, I want to know about the
@@ -20,10 +22,13 @@
                 <option id="starships" value="starships"></option>
             </datalist>
             in Star Wars.
-           <input id="getInfo" type="submit">
+           <input id="getInfo" type="submit" value="Find the Droids You're Looking For">
           </form>
+      </div>
+      <div class="row">
           <div class="display"></div>
         </div>
+    </div>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="js/twelveparsecs.js"></script>
     </body>

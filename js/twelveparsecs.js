@@ -5,13 +5,12 @@ $(document).ready(function() {
 
 $('.display').click(function(event) {
     event.preventDefault();
-    //get category from h4's parent div
-    let $parent = $('h4').parent();
+    //get category from li's parent div
+    let $parent = $('li').parent();
     let $cat = $parent.attr('class');
     let cat = String($cat);
-    //get id to search for...currently only returning id_1, not unique id
-    let $id = $('h4').get();  //need correct method here
-    console.log($id);
+    //get id to search for
+    var $id = $('li.active').attr('id');
     //slice off num to use in ajax url req
     if($id.length == 4) {
         id_num = $id.slice(-1) + '/';
@@ -20,13 +19,21 @@ $('.display').click(function(event) {
     } else {
         id_num = $id.slice(-3) + '/';
     }
-    console.log(id_num);
 
-    $.ajax({
+    $.ajax({         // do I need to create all the jquery objs in ajax or outside?
         type: 'GET',
         url: 'https://swapi.co/api/' + $cat + id_num,
         success: function(result) {
-            console.log(result);
+            $info = $('<div>');
+            $info.append($('<ul id="details">'))
+            $keys = Object.keys(result);
+            $values = Object.values(result);
+            for(var i = 0; i < $keys.length; i++) {
+                $info.append($keys[i] + ": \t" +  $values[i]);
+                $info.append($("<br>"))
+            }
+            console.log($info);
+            $('li.active').append($info);
         }
     })
 
@@ -51,20 +58,31 @@ $('#getInfo').click(function(event) {
         success: function(result) {
             let $result = result
             let $bigbox =$('<div>');
+            $bigbox.append($('<ul id="cats">'))
             for(var i = 0; i < $result.results.length; i++) {
-                $cat = $('<h4>');
+                $cat = $('<li>');
                 if($choice === "films/") {
                     $cat.append("Episode " + $result.results[i].episode_id + ':\t' + $result.results[i].title);
                     $cat.attr("id", "id_" + (i+1));
-                    $cat.attr("class", $choice)
+                    $($cat).on('click',function() {
+                      $($cat).removeClass('active');
+                      $(this).addClass('active');
+                    });
+                    $bigbox.attr("class", $choice)
                     $bigbox.append($cat);
                 } else {
                     $cat.append($result.results[i].name);
+                    $($cat).on('click',function() {
+                      $($cat).removeClass('active');
+                      $(this).addClass('active');
+                    });
                     $cat.attr("id", "id_" + (i+1));
                     $bigbox.attr("class", $choice)
                     $bigbox.append($cat);
                 }
+
             }
+
             $('.display').empty();
             $('.display').append($bigbox);
             }
