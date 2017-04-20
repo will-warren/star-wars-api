@@ -5,11 +5,15 @@ $(document).ready(function() {
 $('.display').click(function(event) {
     $src = $(event.target);
     console.log($src);
-    if ($('li').attr('class') == '.active') {
+    if ($('li').is('.active')) {
         console.log("f1");
-        $(this).removeClass('active');
+        $('.active').each(function(event) {
+          $('.active').empty();
+          $(this).removeClass('active');
+        });
         $src.addClass('active');
-    }});
+    }
+});
 
 $('.display').click(function(event) {
     // get url from id...still having trouble clearing and picking new url each time
@@ -27,7 +31,6 @@ $('.display').click(function(event) {
             for(var i = 0; i < $keys.length; i++) {
                 $info.append("<li>" + $keys[i] + ": \t" +  $values[i] + '</li>');
             }
-            console.log($info);
             $('li.active').empty();
             $('li.active').append($info);
         }
@@ -72,7 +75,6 @@ $('#getInfo').click(function(event) {
                     $bigbox.append($cat);
                 }
             }
-            $('.display').empty();
             $('.display').append($bigbox);
             }
 })
