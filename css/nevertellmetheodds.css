@@ -24,9 +24,28 @@ ul {
     flex-direction: column;
 }
 
+.display li {
+    list-style-type: none;
+    line-height: 35px;
+    font-size: 24px;
+    font-weight: lighter;
+}
+
+.display li:hover {
+    border-left: 4px solid aqua;
+    color: aqua:
+}
+
 #title {
     display: flex;
     justify-content: center;
     flex-direction: row;
     align-items: stretch;
+}
+
+#iconz img {
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: column;
+    align-content:space-between;
 }
