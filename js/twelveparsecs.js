@@ -5,7 +5,6 @@ $(document).ready(function() {
 
 $('.display').click(function(event) {
     $src = $(event.target);
-    console.log($src);
     if ($('li').is('.active')) {
         $('.active').each(function(event) {
           $('.active').empty();
@@ -24,33 +23,49 @@ $('.display').click(function(event) {
     var $keys;
     var $values;
 
-    var $innerKeys;
-    var $innerValues;
-
     $.ajax({
         type: 'GET',
         url: $url,
         success: function(result) {
             $keys = Object.keys(result);
             $values = Object.values(result);
-    //print names for each url link
-    for(var i = 0; i < $values.length; i++) {
-        if(typeof $values[i] == "object") {
-            console.log($keys[i]);
-            console.log($values[i])
-            .
-            // for( var j = 0; j < $values[i].length; j++) {
-            //     $list.append($('<li><a href=\'' + $values[i][j] +
-            //     '/>' + ))
-            // }
-
+          //print names for each url link
+        for(var i = 0; i < $values.length; i++) {
+          if(typeof $values[i] == "object") {
+            for( var j = 0; j < $values[i].length; j++) {
+                $.ajax({
+                    type: "GET",
+                    url: $values[i][j],
+                    success: function(result) {
+                        if(!result.name) {
+                            $info.append($('<li> Episode ' + result.episode_id + " " + result.title + '</li>'));
+                        } else {
+                            $info.append($('<li/>' + result.name +'</li>'));
+                    }
+                }
+            })
+          }
         } else {
-            console.log('else');
-            $info.append("<li>" + $keys[i] + ":   " +  $values[i] + '</li>');
+            if($keys[i] === 'homeworld') {
+                $home = "";
+                $.ajax({
+                    type: 'GET',
+                    url: $values[i],
+                    success: function(result) {
+                        home = result.name;
+                        console.log(result.name);
+                        $info.append("<li>homeworld: "  +  home + '</li>');
+                    }
+                })
+            } else if ($keys[i] === 'url') {
+                $info.append("<li><a href=\'" + $values[i] + '\'>' + $keys[i] +"</a>");
+            } else {
+                $info.append("<li>" + $keys[i] + ":   " +  $values[i] + '</li>');
+        }
       }
       }
-      }
-    })
+  }})
+    $('')
     $('li.active').empty();
     $('li.active').append($info);
 });

@@ -49,3 +49,12 @@ ul {
     flex-flow: column;
     align-content:space-between;
 }
+
+#details li {
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+#details li:hover {
+    border-left: 4px solid #FFFF00;
+}
