@@ -40,7 +40,7 @@ $('.display').click(function(event) {
                         if(!result.name) {
                             $info.append($('<li> Episode ' + result.episode_id + " " + result.title + '</li>'));
                         } else {
-                            $info.append($('<li/>' + result.name +'</li>'));
+                            $info.append($('<li/>' + String(result.name) +'</li>'));
                     }
                 }
             })
