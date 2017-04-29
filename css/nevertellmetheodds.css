@@ -1,14 +1,3 @@
-#display {
-    cursor:  auto;
-    margin: auto;
-    width: 100%;
-    position: relative;
-}
-
-#active {
-    color: red;
-
-}
 
 ul {
     display: flex;
@@ -35,6 +24,17 @@ ul {
     border-left: 4px solid aqua;
     color: aqua:
 }
+#display {
+    cursor:  auto;
+    margin: auto;
+    width: 100%;
+    position: relative;
+}
+
+#active {
+    color: red;
+
+}
 
 #title {
     display: flex;
@@ -43,10 +43,14 @@ ul {
     align-items: stretch;
 }
 
-#iconz img {
+#start {
     display: flex;
-    justify-content: flex-end;
-    flex-flow: column;
+    justify-content: center;
+}
+
+#iconz {
+    display: flex;
+    flex-flow: row-reverse;
     align-content:space-between;
 }
 
@@ -57,4 +61,16 @@ ul {
 
 #details li:hover {
     border-left: 4px solid #FFFF00;
+}
+
+#pfa{
+    display:flex;
+    flex-flow: wrap;
+    justify-content: flex-start;
+}
+
+#link {
+    background-color: #CDA08E;
+    color: #5D5B5A;
+    font-size: 1.2em;
 }

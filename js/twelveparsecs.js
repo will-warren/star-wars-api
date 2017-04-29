@@ -1,8 +1,13 @@
-//js file for star wars api hw
+//js file. makes ajax calls to SWAPI (http://swapi.co).
+//1. first call to list view, lists out sub categories
+//2. second call to detail view, shows details for subcat
+//3. third call to detail view of those details which are objects
+// (arrays in this case) to show a few more details.
 
 $(document).ready(function() {
 //need to add active class on click but take off previous active classes
 
+//only one item in the sub category at a time.
 $('.display').click(function(event) {
     $src = $(event.target);
     if ($('li').is('.active')) {
@@ -15,9 +20,13 @@ $('.display').click(function(event) {
     }
 });
 
+//second api detail view call
 $('.display').click(function(event) {
-    // get url from id...still having trouble clearing and picking new url each time
+// get top level details
     let $url = $('li.active').attr('id')
+    //add s for https
+    $url = $url.slice(0,4) + 's' + $url.slice(4)
+    console.log($url)
     let $info = ($('<ul id="details">'))
     let $list = $("<ul>");
     var $keys;
@@ -33,9 +42,10 @@ $('.display').click(function(event) {
         for(var i = 0; i < $values.length; i++) {
           if(typeof $values[i] == "object") {
             for( var j = 0; j < $values[i].length; j++) {
+                //add s for https
                 $.ajax({
                     type: "GET",
-                    url: $values[i][j],
+                    url: $values[i][j].slice(0,4) + 's' + $values[i][j].slice(4),
                     success: function(result) {
                         if(!result.name) {
                             $info.append($('<li> Episode ' + result.episode_id + " " + result.title + '</li>'));
@@ -65,12 +75,11 @@ $('.display').click(function(event) {
       }
       }
   }})
-    $('')
     $('li.active').empty();
     $('li.active').append($info);
 });
 
-//click button to search
+//first api list view call. adds category number to url based on form input.
 $('#getInfo').click(function(event) {
     event.preventDefault();
     //get category
@@ -88,6 +97,7 @@ $('#getInfo').click(function(event) {
             $bigbox.append($('<ul id="cats">'))
             for(var i = 0; i < $result.results.length; i++) {
                 $cat = $('<li>');
+                //if films then add title and ep num, if not add item name
                 if($choice === "films/") {
                     $cat.append("Episode " + $result.results[i].episode_id + ':\t' + $result.results[i].title);
                     $cat.attr("id", "id_" + $result.results[i].url);
