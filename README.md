@@ -10,22 +10,28 @@ For my portfolio and contact information please check me out: [Will Warren](http
 2.    Integrate the data retrieved from the API into your web page
 3.    Create a user interface to access the data retrieved
 
+## How to Run
+1. Clone this repository
+2. Open the absolute path for 'index.html' in your web browser
+
+or
+
+See it live: [Twelve Parsecs](https://willwile4.github.io/twelveparsecs)
+
+3. Select your category, and find the droids you're looking for.
+
 ### Files and Notes:
 
 1. index.html
-  - open in any internet browser
-  - select your category from the dropdown
-  - find the droids you're looking for.
-  - click items for more details
-
 2. js/
   - twelveparsecs.js, js file for SWapi.
-  - known bug: movie titles delete on click 4/22.
-
 3. css/
   - nevertellmetheodds.css, stylesheet
 
 - This project is featured in my portfolio at (https://willwile4.github.io/twelveparsecs.html)
+
+### Notes
+1. known bug: movie titles delete on click 4/22.
 
 ### Built With
 
