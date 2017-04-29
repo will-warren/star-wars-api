@@ -4,7 +4,7 @@ An exercise using jQuery/AJAX, calling APIs, and creating a front end for that d
 
 For my portfolio and contact information please check me out: [Will Warren](http://willwile4.github.io)
 
-##Objectives
+## Objectives
 
 1.    Access a web API using AJAX
 2.    Integrate the data retrieved from the API into your web page
@@ -19,7 +19,7 @@ For my portfolio and contact information please check me out: [Will Warren](http
   - click items for more details
 
 2. js/
-  - twelveparsecs.js, js file for SWapi. 
+  - twelveparsecs.js, js file for SWapi.
   - known bug: movie titles delete on click 4/22.
 
 3. css/
@@ -27,11 +27,11 @@ For my portfolio and contact information please check me out: [Will Warren](http
 
 - This project is featured in my portfolio at (https://willwile4.github.io/twelveparsecs.html)
 
-## Built With
+### Built With
 
 * [Skelton](http://getskeleton) - a little boilerplate CSS from Skeleton
 * [jQuery](https://jquery.com) - jQuery
 
-##Acknowledgments
+### Acknowledgments
 
 * A huge Thank You to the kind people at [SWAPI](http://swapi.co) for the Star Wars API
