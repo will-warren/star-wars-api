@@ -29,7 +29,7 @@ For my portfolio and contact information please check me out: [Will Warren](http
 
 ### Built With
 
-* [Skelton](http://getskeleton.com) - a little boilerplate CSS from Skeleton
+* [Skeleton](http://getskeleton.com) - a little boilerplate CSS from Skeleton
 * [jQuery](https://jquery.com) - jQuery
 
 ### Acknowledgments
